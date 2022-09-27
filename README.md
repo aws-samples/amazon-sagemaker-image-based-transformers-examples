@@ -3,6 +3,7 @@
 This repository contains a set of example projects for image related transformers tasks using Amazon SageMaker.  This includes the following tasks:
   * text-to-image-custom-container:  Generate an image from a text prompt.  Deploy using a custom Docker container on SageMaker.
   * image-to-image-custom-container: Generate an image from a starting image and text prompt.  Deploy using a custom Docker container on SageMaker.
+  * image-inpainting-custom-container:  Alter a portion of an image according to a text prompt and image mask.  Deploy using a custom Docker container.  (Work in progress)
 
 
 To see the example project for each task above, take a look at the corresponding directory in this repository with the same name.
