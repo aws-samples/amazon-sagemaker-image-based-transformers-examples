@@ -1,11 +1,23 @@
-## My Project
+# Image Based Transformer Tasks
 
-TODO: Fill this README out!
+This repository contains a set of example projects for image related transformers tasks using Amazon SageMaker.  This includes the following tasks:
+  * text-to-image-custom-container:  Generate an image from a text prompt.  Deploy using a custom Docker container on SageMaker.
+  * image-to-image-custom-container: Generate an image from a starting image and text prompt.  Deploy using a custom Docker container on SageMaker.
 
-Be sure to:
 
-* Change the title in this README
-* Edit your repository description on GitHub
+To see the example project for each task above, take a look at the corresponding directory in this repository with the same name.
+
+
+Many of the models in this repository use the Stable Diffusion algorithm.  From [Wikipedia](https://en.wikipedia.org/wiki/Stable_Diffusion): "Stable Diffusion is a machine learning, text-to-image model developed by StabilityAI, in collaboration with EleutherAI and LAION, to generate digital images from natural language descriptions. The model can be used for other tasks too, like generating image-to-image translations guided by a text prompt.  Stable Diffusion was trained on a subset of the LAION-Aesthetics V2 dataset. It was trained using 256 Nvidia A100 GPUs at a cost of $600,000."
+
+## Examples
+
+TODO:  Add example images.
+
+## References
+  * [Stable Diffusion Model on Hugging Face](https://huggingface.co/CompVis/stable-diffusion-v1-4)
+  * [Custom container packaging code example](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime/BYOC/PreTrained-Examples/SpacyNER)
+
 
 ## Security
 
