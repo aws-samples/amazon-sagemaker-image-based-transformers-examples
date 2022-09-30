@@ -13,7 +13,15 @@ Many of the models in this repository use the Stable Diffusion algorithm.  From 
 
 ## Examples
 
-TODO:  Add example images.
+Here is an example of each task, so that you can get an idea of what each one does.
+
+### Text to Image
+Prompt:  A dog running in a field of flowers.
+![A dog running in a field of flowers.](images/dog_in_field.png)
+### Image Inpainting
+
+### Image to Image
+
 
 ## References
   * [Stable Diffusion Model on Hugging Face](https://huggingface.co/CompVis/stable-diffusion-v1-4)
