@@ -17,11 +17,21 @@ Here is an example of each task, so that you can get an idea of what each one do
 
 ### Text to Image
 Prompt:  A dog running in a field of flowers.
+
 ![A dog running in a field of flowers.](images/dog_in_field.png)
 ### Image Inpainting
+First, manually create a mask to focus the algorithm on a part of an image.  The blacked out part of the image is frozen, and will not be changed by the algoritm.
+
+![A dog running in a field of flowers.](images/dog_in_field.png)  ![A masked dog.](images/dog_mask.png)
+
+Prompt:  A cat running in a field of flowers.
+
+![A cat running in a field of flowers.](images/cat_in_field.png)
 
 ### Image to Image
+Prompt: 3D render, highly detailed, cat!
 
+![A simple cat.](images/pre_cat.png)  ![A complex cat.](images/post_cat.png)
 
 ## References
   * [Stable Diffusion Model on Hugging Face](https://huggingface.co/CompVis/stable-diffusion-v1-4)
