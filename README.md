@@ -16,20 +16,23 @@ Many of the models in this repository use the Stable Diffusion algorithm.  From 
 Here is an example of each task, so that you can get an idea of what each one does.
 
 ### Text to Image
-Prompt:  A dog running in a field of flowers.
+#### Prompt:  A dog running in a field of flowers.
 
 ![A dog running in a field of flowers.](images/dog_in_field.png)
 ### Image Inpainting
-First, manually create a mask to focus the algorithm on a part of an image.  The blacked out part of the image is frozen, and will not be changed by the algoritm.
+First, manually create a mask to focus the algorithm on a part of an image.  The blacked out part of the image is frozen, and will not be changed by the algoritm.  Here, we want to keep the background, but swap out the dog.
 
 ![A dog running in a field of flowers.](images/dog_in_field.png)  ![A masked dog.](images/dog_mask.png)
 
-Prompt:  A cat running in a field of flowers.
+#### Prompt:  A cat running in a field of flowers.
 
 ![A cat running in a field of flowers.](images/cat_in_field.png)
 
 ### Image to Image
-Prompt: 3D render, highly detailed, cat!
+Here, we start with a simplistic cat drawing, and we want to enhance the image according to the prompt.
+
+
+#### Prompt: 3D render, highly detailed, cat!
 
 ![A simple cat.](images/pre_cat.png)  ![A complex cat.](images/post_cat.png)
 
