@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+		Simple Mask Generator
+		Oct 2022
+		By Justin Muller
+    Open terminal and run "python3 -m http.server 8000" in the same directory as this HTML file.
+    Open a browser to "http://localhost:8000/mask.html"
+-->
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/mask.css">
+  		<script src="js/mask.js"></script>
+        <title>Mask</title>
+    </head>
+    <body>
+        <div id="center_body">
+        <div id="title">Simple Mask Generator</div>
+        <div id="instructions">This is a simple tool used to make an image mask.  
+          This mask can be used in Image Inpainting, as described <a href="https://github.com/aws-samples/amazon-sagemaker-image-based-transformers-examples/tree/main/image-inpainting-custom-container">in this github repo</a>.
+          After uploading an image, click and drag on the region of the image that you want to change with Stable Diffusion.
+        </div>
+        <br>
+        <div id="image_box">
+          <img id="bg_img" src="/img/placeholder.png">
+            <canvas
+              id="canvas"
+              width="512"
+              height="512"
+            ></canvas>
+        </div>
+            <br>
+            <input type="file" id="upload_button" accept="image/jpeg, image/png, image/jpg">
+            <br>
+            <br>
+            <div id="brush_label">Brush Size (0-100)</div>
+            <input type="text" id="brush_size" value="25">
+            <br>
+            <br>
+            <input class="button" type="button" id="reset_button" value="Reset Mask">
+            <input class="button" type="button" id="save_button" value="Save Mask">
+          </div> 
+    </body>
+</html>

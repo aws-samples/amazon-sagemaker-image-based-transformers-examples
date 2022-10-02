@@ -1,0 +1,48 @@
+body{
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+#center_body{
+    width: 512px;
+    margin: 0 auto;
+}
+#title{
+    font-size: 3em;
+}
+#image_box{
+    width: 512px;
+    height: 512px;
+    position: relative;    
+}
+#bg_img{
+    width: 512px;
+    height: 512px;
+    position: absolute;
+    left: 0;
+}
+
+#canvas{
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+}
+#brush_label{
+    font-size: 1.25em;
+    float: left;
+}
+#brush_size{
+    font-size: 1.25em;
+    width: 100px;
+    float: left;
+    margin-left: 20px;
+}
+#upload_button{
+    font-size: 1.25em;
+    float: left;
+}
+.button{
+    font-size: 1.25em;
+    width: 260 px;
+}
