@@ -6,7 +6,7 @@ import logging
 
 import torch
 from torch import autocast
-from diffusers import StableDiffusionImg2ImgPipeline
+from diffusers import StableDiffusionInpaintPipeline
 import io
 import uuid
 import boto3
@@ -20,7 +20,7 @@ BUCKET_NAME = "justin-prototypes"
 FOLDER = "botvango/"
 
 #Load model from our local weights
-pipe = StableDiffusionImg2ImgPipeline.from_pretrained(local_model_dir)
+pipe = StableDiffusionInpaintPipeline.from_pretrained(local_model_dir)
 #move the vectors to the GPU, if avaliable.
 if torch.cuda.is_available():
     pipe = pipe.to("cuda")
@@ -49,12 +49,19 @@ def transformation():
         prompt = ""
     print ("New request:"+prompt)
 
-    #Grab the prompt from the input_json, if any.
+    #Grab the image S3 location.
     if "img" in input_json:
         img = input_json['img']
     else:
         img = ""
     print ("Image Name:"+img)
+    
+    #Grab the image mask S3 location.
+    if "mask" in input_json:
+        mask_img = input_json['mask']
+    else:
+        mask_img = ""
+    print ("Mask image Name:"+img)
     
     #Grab the hyperparmeters from the input_json, if any.
     if "guidance_scale" in input_json:
@@ -76,7 +83,7 @@ def transformation():
     image_name = uuid.uuid4().hex + ".png"
     
     try:
-        #start by pulling our initial image from S3
+        #start by pulling our initial image and mask from S3
         s3 = boto3.resource('s3')
         bucket = s3.Bucket(BUCKET_NAME)
         new_image = bucket.Object(FOLDER+img)
@@ -84,9 +91,14 @@ def transformation():
         init_image = Image.open(io.BytesIO(img_data)).convert("RGB")
         init_image = init_image.resize((512, 512))
         
+        new_mask_image = bucket.Object(FOLDER+mask_img)
+        mask_img_data = new_mask_image.get().get('Body').read()
+        mask_image = Image.open(io.BytesIO(mask_img_data)).convert("RGB")
+        mask_image = mask_image.resize((512, 512))
+        
         #Compute image from prompt
         with autocast("cuda"):
-            image = pipe(prompt, init_image=init_image, strength=strength, guidance_scale=guidance_scale,num_inference_steps=num_inference_steps).images[0]
+            image = pipe(prompt, init_image=init_image, mask_image=mask_image, strength=strength, guidance_scale=guidance_scale,num_inference_steps=num_inference_steps).images[0]
 
         #save the image to S3
         client_s3 = boto3.client('s3')
