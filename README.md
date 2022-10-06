@@ -4,6 +4,7 @@ This repository contains a set of example projects for image related transformer
   * text-to-image-custom-container:  Generate an image from a text prompt.  Deploy using a custom Docker container on SageMaker.
   * image-to-image-custom-container: Generate an image from a starting image and text prompt.  Deploy using a custom Docker container on SageMaker.
   * image-inpainting-custom-container:  Alter a portion of an image according to a text prompt and image mask.  Deploy using a custom Docker container.  (Work in progress)
+  * cross-modality-container-ofa:  Generate a caption to describe an image ,answer a specific question about an image, and generate a border around the specific object in an image
 
 
 To see the example project for each task above, take a look at the corresponding directory in this repository with the same name.
@@ -35,6 +36,38 @@ Here, we start with a simplistic cat drawing, and we want to enhance the image a
 #### Prompt: 3D render, highly detailed, cat!
 
 ![A simple cat.](images/pre_cat.png)  ![A complex cat.](images/post_cat.png)
+
+
+### OFA cross modality model  
+
+#### Visual QA & Image Grounding 
+
+#####  A cat with a mask
+ ![A cat with a mask](images/cat_mask.png) 
+
+ **Prompt:** what does the image describe?
+ **Model:** a cat wearing a face mask
+
+ **Prompt:** What is the cat wearing?
+ **Model:** Mask
+
+  **Prompt:** which region does the text " eyes " describe?
+  **Model:** ![A cat with eyes highlighted](images/cat_mask_eyes.png) 
+
+#####  Cat & Dog portrait
+![A cat and dog portrait](images/cat_and_dog.png) 
+
+ **Prompt:** what does the image describe?
+ **Model:** portrait of a group of pets, cats and dogs 
+
+ **Prompt:** What is the color of the cat?
+ **Model:** gray
+
+ **Prompt:** What is the color of the largest dog?
+ **Model:** brown
+
+ **Prompt:**  which region does the text " cat " describe?
+ **Model:** ![Image with cat highlighted](images/cat_and_dog_out.png) 
 
 ## References
   * [Stable Diffusion Model on Hugging Face](https://huggingface.co/CompVis/stable-diffusion-v1-4)
