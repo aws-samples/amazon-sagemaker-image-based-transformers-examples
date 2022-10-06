@@ -40,33 +40,32 @@ Here, we start with a simplistic cat drawing, and we want to enhance the image a
 
 ### OFA cross modality model  
 
-#### Visual QA & Image Grounding 
-
-#####  A cat with a mask
+####  A cat with a mask
  ![A cat with a mask](images/cat_mask.png) 
 
- **Prompt:** what does the image describe?
- **Model:** a cat wearing a face mask
++  **Prompt:** what does the image describe?\
+  **Model:** a cat wearing a face mask
++
+ 
+  **Prompt:** What is the cat wearing?\
+  **Model:** Mask
+ +
+   **Prompt:** which region does the text " eyes " describe?\
+   **Model:** ![A cat with eyes highlighted](images/cat_mask_eyes.png) 
 
- **Prompt:** What is the cat wearing?
- **Model:** Mask
-
-  **Prompt:** which region does the text " eyes " describe?
-  **Model:** ![A cat with eyes highlighted](images/cat_mask_eyes.png) 
-
-#####  Cat & Dog portrait
+#### Cat & Dog portrait
 ![A cat and dog portrait](images/cat_and_dog.png) 
 
- **Prompt:** what does the image describe?
++ **Prompt:** what does the image describe?\
  **Model:** portrait of a group of pets, cats and dogs 
 
- **Prompt:** What is the color of the cat?
++ **Prompt:** What is the color of the cat?\
  **Model:** gray
 
- **Prompt:** What is the color of the largest dog?
++ **Prompt:** What is the color of the largest dog?\
  **Model:** brown
 
- **Prompt:**  which region does the text " cat " describe?
++ **Prompt:**  which region does the text " cat " describe?\
  **Model:** ![Image with cat highlighted](images/cat_and_dog_out.png) 
 
 ## References
