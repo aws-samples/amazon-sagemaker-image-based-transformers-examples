@@ -41,7 +41,7 @@ Here, we start with a simplistic cat drawing, and we want to enhance the image a
 ### OFA cross modality model  
 
 ####  A cat with a mask
- ![A cat with a mask](images/cat_mask.png) 
+ ![A cat with a mask](images/cat_mask.jpg) 
 
 +  **Prompt:** what does the image describe?\
   **Model:** a cat wearing a face mask
@@ -51,7 +51,7 @@ Here, we start with a simplistic cat drawing, and we want to enhance the image a
   **Model:** Mask
  +
    **Prompt:** which region does the text " eyes " describe?\
-   **Model:** ![A cat with eyes highlighted](images/cat_mask_eyes.png) 
+   **Model:** ![A cat with eyes highlighted](images/cat_mask_eyes.jpg) 
 
 #### Cat & Dog portrait
 ![A cat and dog portrait](images/cat_and_dog.png) 
