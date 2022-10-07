@@ -21,7 +21,7 @@ Here is an example of each task, so that you can get an idea of what each one do
 
 ![A dog running in a field of flowers.](images/dog_in_field.png)
 ### Image Inpainting
-First, manually create a mask to focus the algorithm on a part of an image.  The blacked out part of the image is frozen, and will not be changed by the algoritm.  Here, we want to keep the background, but swap out the dog.
+First, manually create a mask to focus the algorithm on a part of an image.  The blacked out part of the image is frozen, and will not be changed by the algorithm.  Here, we want to keep the background, but swap out the dog.
 
 ![A dog running in a field of flowers.](images/dog_in_field.png)  ![A masked dog.](images/dog_mask.png)
 
