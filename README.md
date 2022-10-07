@@ -4,7 +4,7 @@ This repository contains a set of example projects for image related transformer
   * text-to-image-custom-container:  Generate an image from a text prompt.  Deploy using a custom Docker container on SageMaker.
   * image-to-image-custom-container: Generate an image from a starting image and text prompt.  Deploy using a custom Docker container on SageMaker.
   * image-inpainting-custom-container:  Alter a portion of an image according to a text prompt and image mask.  Deploy using a custom Docker container.
-  * cross-modality-container-ofa:  Generate a caption to describe an image ,answer a specific question about an image, and generate a border around the specific object in an image
+  * cross-modality-container-ofa:  Generate a caption to describe an image, answer a specific question about an image, or generate a border around the specific object in an image
 
 
 To see the example project for each task above, take a look at the corresponding directory in this repository with the same name.
