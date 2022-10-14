@@ -21,7 +21,6 @@ The notebook follows these basic steps:
 
 References:
   * [OFA Model on Hugging Face](https://huggingface.co/OFA-Sys/OFA-large)
-  * [Custom container packaging code example](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime/BYOC/PreTrained-Examples/SpacyNER)
 
 Container Structure:  This should be the directory structure locally, in order to pack everything correctly into your container. ([reference](https://sagemaker-workshop.com/custom/containers.html))  You will already have this structure if you cloned the git repo, if not, following the directions in this notebook will rebuild this structure and all required files.
 - This Notebook

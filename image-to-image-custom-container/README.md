@@ -18,8 +18,6 @@ The notebook follows these basic steps:
 
 References:
   * [Stable Diffusion Model on Hugging Face](https://huggingface.co/CompVis/stable-diffusion-v1-4)
-  * [Custom container packaging code example](https://github.com/RamVegiraju/SageMaker-Deployment/tree/master/RealTime/BYOC/PreTrained-Examples/SpacyNER)
-
 [Container Structure](https://sagemaker-workshop.com/custom/containers.html)
 - TTI
     - predictor.py: Flask app for inference, our custom inference code
