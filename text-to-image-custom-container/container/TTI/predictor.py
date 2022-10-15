@@ -15,8 +15,8 @@ import boto3
 local_model_dir = "./stable-diffusion-v1-4"
 
 #Replace this bucket and folder name with your own location for the images to be delivered to.
-BUCKET_NAME = "justin-prototypes"
-FOLDER = "botvango/"
+BUCKET_NAME = "YOUR BUCKET NAME HERE"
+FOLDER = "YOUR FOLDER NAME HERE/"
 
 #Load model from our local weights
 pipe = StableDiffusionPipeline.from_pretrained(local_model_dir)
@@ -68,30 +68,38 @@ def transformation():
         width = input_json['width']
     else:
         width = 512
+        
+    if "results" in input_json:
+        results = input_json['results']
+    else:
+        results = 1
+        
     
     #create a random name to use for the image to be generated.
-    image_name = uuid.uuid4().hex + ".png"
-    
+    image_names = []        
     try:
         #Compute image from prompt
         with autocast("cuda"):
-            image = pipe(prompt, guidance_scale=guidance_scale,num_inference_steps=num_inference_steps,height=height,width=width)["sample"][0]    
-
-        #save the image to S3
-        client_s3 = boto3.client('s3')
-        #First, save the image to an in-memory file
-        in_mem_file = io.BytesIO()
-        image.save(in_mem_file, format="png")
-        in_mem_file.seek(0)
-        #Then, upload the in-memory file to S3
-        client_s3.upload_fileobj(
-            in_mem_file,
-            BUCKET_NAME,
-            FOLDER+image_name
-        )
+            images = pipe([prompt]*results, guidance_scale=guidance_scale,num_inference_steps=num_inference_steps,height=height,width=width)["sample"]   
+        
+        for image in images:
+            image_name = uuid.uuid4().hex + ".png"
+            #save the image to S3
+            client_s3 = boto3.client('s3')
+            #First, save the image to an in-memory file
+            in_mem_file = io.BytesIO()
+            image.save(in_mem_file, format="png")
+            in_mem_file.seek(0)
+            #Then, upload the in-memory file to S3
+            client_s3.upload_fileobj(
+                in_mem_file,
+                BUCKET_NAME,
+                FOLDER+image_name
+            )
+            image_names.append(image_name)
 
         #send image S3 location as result
-        result = {'s3_loc': image_name}
+        result = {'s3_loc': image_names}
     except Exception as e:
         #send an error message
         result = {'s3_loc': "error","error":str(e)}
